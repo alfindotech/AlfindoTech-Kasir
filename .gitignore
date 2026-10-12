@@ -1,0 +1,12 @@
+.gradle/
+.kotlin/
+build/
+app/build/
+local.properties
+.DS_Store
+*.jks
+*.keystore
+.env
+build_error.txt
+.vscode/
+*.bak
