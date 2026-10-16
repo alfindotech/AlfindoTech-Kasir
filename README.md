@@ -1,17 +1,18 @@
 # Aplikasi Kasir Android - AlfindoTech
 
-## Printer Thermal Bluetooth
-- Izin Bluetooth Android 12+
-- Membaca printer Bluetooth yang sudah dipasangkan
-- Pilih printer thermal dari halaman struk
-- Bluetooth Classic SPP
-- Cetak format ESC/POS 32 kolom yang cocok untuk printer thermal 58/80 mm
-- Nama toko, alamat, telepon, nomor transaksi, kasir, item, total, bayar, kembalian
-- Penanganan kegagalan koneksi
+Project ini bertujuan untuk menganalisis kebutuhan, merancang arsitektur, dan mengimplementasikan pengujian fungsional untuk SISTEM APLIKASI KASIR berbasis Android dengan bahasa pemrograman kotlin yang dapat mempermudah pengelolaan transaksi penjualan, pembelian barang, data produk, kategori, satuan, dan stok secara terintegrasi. Sistem ini juga menyediakan fitur pengelolaan pengguna berdasarkan hak akses, pencetakan struk, laporan penjualan dan pembelian, serta rekap shift kasir untuk meningkatkan efisiensi, akurasi pencatatan, dan kemudahan pemantauan operasional usaha.
 
-## Catatan
-Printer thermal harus dipasangkan terlebih dahulu melalui Settings > Bluetooth Android.
-Implementasi menggunakan UUID SPP umum:
-00001101-0000-1000-8000-00805F9B34FB
+fitur yang terdapat didalam aplikasi :
+1. aktifasi program
+2. halaman login
+3. Hak akses (Admin, Staf, Kasir)
+4. Halaman Dashboard (Kategori, Satuan, Pembelian, Penjualan, Laporan, pengaturan)
+5. Menu Kasir terdapat Barcode untuk pencarian Produk.
+6. Cetak Struk menggunakan printer thermal Bluetooth.
+7. Database local (room/sqlite)
+
+
+
+
 
 
