@@ -17,7 +17,7 @@
         android:usesPermissionFlags="neverForLocation" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:label="AlfindoTech Kasir"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
