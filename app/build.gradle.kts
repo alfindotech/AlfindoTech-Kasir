@@ -1,29 +1,63 @@
 plugins {
+    
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.compose")
 }
+allprojects {
+    dependencyLocking {
+        lockAllConfigurations()
+    }
+}
 
+sonar {
+    properties {
+        property("sonar.projectKey", "alfindotech_AlfindoTech-Kasir")
+        property("sonar.organization", "alfindotech")
+    }
+}
 android {
     namespace = "id.alfindotech.kasir"
     compileSdk = 35
 
     compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 
-kotlinOptions {
-    jvmTarget = "17"
-}
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 
-defaultConfig {
+    defaultConfig {
         applicationId = "id.alfindotech.kasir"
         minSdk = 23
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
+
+        testInstrumentationRunner =
+            "io.cucumber.android.runner.CucumberAndroidJUnitRunner"
+
+        testInstrumentationRunnerArguments["optionsAnnotationPackage"] =
+            "id.alfindotech.kasir.test"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        debug {
+            isMinifyEnabled = false
+        }
     }
 
     buildFeatures {
@@ -37,6 +71,7 @@ defaultConfig {
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2024.09.03")
+
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
@@ -58,5 +93,10 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
-}
 
+    androidTestImplementation("io.cucumber:cucumber-android:7.18.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test:core:1.6.1")
+    androidTestImplementation("androidx.test:rules:1.6.1")
+    androidTestImplementation("junit:junit:4.13.2")
+}
